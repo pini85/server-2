@@ -10,7 +10,7 @@ function App() {
       }),
       //! security
       //only let a certain domain send messages
-      "http://localhost:3000"
+      "https://613f200eed232ac79f2fb85a--server-1.netlify.app/"
     );
   };
   return (
