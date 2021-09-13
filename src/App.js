@@ -9,8 +9,8 @@ function App() {
         message: "Hello World",
       }),
       //! security
-      //only let a certain domain send messages
-      "https://613f200eed232ac79f2fb85a--server-1.netlify.app/"
+      //only let a certain domain to receive send messages
+      "https://server-1.netlify.app/"
     );
   };
   return (
