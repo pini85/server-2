@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const handleClick = () => {
+    localStorage.setItem("id", "34563464634");
     window.top.postMessage(
       JSON.stringify({
         error: false,
