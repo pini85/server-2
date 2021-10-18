@@ -10,7 +10,7 @@ function App() {
     window.top.postMessage(
       JSON.stringify({
         error: false,
-        message: "Hello World",
+        message: "34563464634",
       }),
       //! security
       //only let a certain domain to receive send messages
