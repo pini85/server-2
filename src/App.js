@@ -1,9 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
+import React, { useEffect } from "react";
 
 function App() {
-  const handleClick = () => {
+  useEffect(() => {
     localStorage.setItem("id", "34563464634");
+  }, []);
+  const handleClick = () => {
     window.top.postMessage(
       JSON.stringify({
         error: false,
