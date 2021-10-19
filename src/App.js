@@ -9,7 +9,7 @@ function App() {
     window.top.postMessage(
       JSON.stringify({
         error: false,
-        message: "34563464634",
+        message: "foo=bar",
       }),
       //! security
       //only let a certain domain to receive send messages
@@ -46,6 +46,7 @@ function App() {
   return (
     <div className="App">
       <button onClick={handleLogin}>Login</button>
+      <button onClick={handleClick}>Send post message</button>
       {getCookie("foo") && <h2>You are logged in</h2>}
     </div>
   );
