@@ -36,7 +36,7 @@ function App() {
   }
 
   function createCookie() {
-    document.cookie = "foo=bar";
+    document.cookie = "foo=bar; SameSite=none; Secure";
     setX("x");
   }
   const handleLogin = () => {
