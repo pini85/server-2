@@ -1,11 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  useEffect(() => {
-    localStorage.setItem("id", "34563464634");
-  }, []);
+  const [x, setX] = useState(null);
+  useEffect(() => {}, []);
   const handleClick = () => {
     window.top.postMessage(
       JSON.stringify({
@@ -14,13 +13,40 @@ function App() {
       }),
       //! security
       //only let a certain domain to receive send messages
-      "https://server-1.netlify.app/"
+      "http://localhost:3000/"
     );
   };
+  function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+      begin = dc.indexOf(prefix);
+      if (begin != 0) return null;
+    } else {
+      begin += 2;
+      var end = document.cookie.indexOf(";", begin);
+      if (end == -1) {
+        end = dc.length;
+      }
+    }
+    // because unescape has been deprecated, replaced with decodeURI
+    //return unescape(dc.substring(begin + prefix.length, end));
+    return decodeURI(dc.substring(begin + prefix.length, end));
+  }
+
+  function createCookie() {
+    document.cookie = "foo=bar";
+    setX("x");
+  }
+  const handleLogin = () => {
+    createCookie();
+  };
+
   return (
     <div className="App">
-      <h1>Click me for an event</h1>
-      <button onClick={handleClick}>CLICK ME!</button>
+      <button onClick={handleLogin}>Login</button>
+      {getCookie("foo") && <h2>You are logged in</h2>}
     </div>
   );
 }
