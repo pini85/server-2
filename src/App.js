@@ -13,7 +13,7 @@ function App() {
       }),
       //! security
       //only let a certain domain to receive send messages
-      "http://localhost:3000/"
+      "https://server-1.netlify.app/"
     );
   };
   function getCookie(name) {
