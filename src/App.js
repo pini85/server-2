@@ -44,7 +44,7 @@ function App() {
   };
 
   const checkCookies = () => {
-    console.log("cookies inside iframe is:", document.cookies);
+    console.log("cookies inside iframe is:", document.cookie);
   };
 
   return (
