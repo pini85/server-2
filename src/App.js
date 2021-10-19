@@ -43,10 +43,15 @@ function App() {
     createCookie();
   };
 
+  const checkCookies = () => {
+    console.log("cookies inside iframe is:", document.cookies);
+  };
+
   return (
     <div className="App">
       <button onClick={handleLogin}>Login</button>
       <button onClick={handleClick}>Send post message</button>
+      <button onClick={checkCookies}> Check cookies</button>
       {getCookie("foo") && <h2>You are logged in</h2>}
     </div>
   );
