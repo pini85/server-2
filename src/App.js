@@ -13,7 +13,7 @@ function App() {
       }),
       //! security
       //only let a certain domain to receive send messages
-      "https://server-1.netlify.app/"
+      "http://localhost:3000/"
     );
   };
   function getCookie(name) {
@@ -30,6 +30,9 @@ function App() {
         end = dc.length;
       }
     }
+    // if (decodeURI(dc.substring(begin + prefix.length, end))) {
+    //   setX("x");
+    // }
     // because unescape has been deprecated, replaced with decodeURI
     //return unescape(dc.substring(begin + prefix.length, end));
     return decodeURI(dc.substring(begin + prefix.length, end));
@@ -44,6 +47,9 @@ function App() {
   };
 
   const checkCookies = () => {
+    if (getCookie("foo")) {
+      setX("x");
+    }
     console.log("cookies inside iframe is:", document.cookie);
   };
 
