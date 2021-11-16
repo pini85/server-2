@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
+  const socket = new WebSocket("wss://pini-backend-playground.herokuapp.com");
   // const handleClick = () => {
   //   window.top.postMessage(
   //     JSON.stringify({
@@ -17,13 +18,16 @@ function App() {
   // };
 
   const handleClick = async () => {
-    const data = await axios.post(
-      "https://pini-backend-playground.herokuapp.com/test",
-      {
-        hi: "hello",
-      }
-    );
-    console.log(data);
+    socket.addEventListener("open", (event) => {
+      socket.send("Hello Server!");
+    });
+    // const data = await axios.post(
+    //   "https://pini-backend-playground.herokuapp.com/test",
+    //   {
+    //     hi: "hello",
+    //   }
+    // );
+    // console.log(data);
   };
 
   return (
