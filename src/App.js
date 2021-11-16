@@ -28,7 +28,7 @@ function App() {
   // };
 
   const handleClick = async () => {
-    socket.send("hello from client 1");
+    socket.send({ studentId: 1234 });
     // const data = await axios.post(
     //   "https://pini-backend-playground.herokuapp.com/test",
     //   {
