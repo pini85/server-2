@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  const socket = new WebSocket("ws://pini-backend-playground.herokuapp.com");
+  const socket = new WebSocket("wss://pini-backend-playground.herokuapp.com");
   useEffect(() => {
     socket.addEventListener("open", function (event) {
       console.log("Connected to WS Server");
