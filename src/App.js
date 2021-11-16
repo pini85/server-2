@@ -47,6 +47,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Inside Iframe</h1>
       <button onClick={handleClick}>Click me</button>
     </div>
   );
