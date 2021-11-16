@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onclick={handleClick}>Click me</button>
+      <button onClick={handleClick}>Click me</button>
     </div>
   );
 }
