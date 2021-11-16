@@ -4,16 +4,22 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  const socket = new WebSocket("wss://pini-backend-playground.herokuapp.com");
+  const url = () => {
+    if (process.env.NODE_ENV === "development") {
+      return "ws://localhost:8080/";
+    }
+    return "wss://pini-backend-playground.herokuapp.com";
+  };
+  const socket = new WebSocket(url());
   useEffect(() => {
     socket.addEventListener("open", function (event) {
       console.log("Connected to WS Server");
     });
 
     // Listen for messages
-    socket.addEventListener("message", function (event) {
-      console.log("Message from server ", event.data);
-    });
+    // socket.addEventListener("message", function (event) {
+    //   console.log("Message from server ", event.data);
+    // });
   }, []);
   // const handleClick = () => {
   //   window.top.postMessage(
@@ -28,7 +34,8 @@ function App() {
   // };
 
   const handleClick = async () => {
-    socket.send({ studentId: 1234 });
+    const obj = { studentId: 1234 };
+    socket.send(JSON.stringify(obj));
     // const data = await axios.post(
     //   "https://pini-backend-playground.herokuapp.com/test",
     //   {
